@@ -1,0 +1,105 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  background: #fff;
+  width: 360px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.header {
+  background-color: #009688;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  color: #777;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.tab.active {
+  color: #009688;
+  border-bottom: 2px solid #009688;
+}
+
+.tasks {
+  padding: 15px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.task.active {
+  background: #009688;
+  color: #fff;
+}
+
+.task .time {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-btns {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.btn.delete {
+  background-color: #00a0a0;
+}
+
+.btn.add {
+  background-color: #009688;
+}
