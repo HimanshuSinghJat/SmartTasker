@@ -3,7 +3,7 @@ const tasksContainer = document.querySelector('.tasks');
 const addBtn = document.querySelector('.btn.add');
 const deleteBtn = document.querySelector('.btn.delete');
 
-// Function to create a new task element
+// Function to create a new task elements
 function createTask(name, time) {
   const task = document.createElement('div');
   task.classList.add('task');
@@ -17,7 +17,7 @@ function createTask(name, time) {
   taskTime.classList.add('time');
   taskTime.textContent = time;
 
-  // Append children
+  // Append childrens
   task.appendChild(taskName);
   task.appendChild(taskTime);
 
@@ -29,7 +29,7 @@ function createTask(name, time) {
   return task;
 }
 
-// Add new task
+// Add new tasks
 addBtn.addEventListener('click', () => {
   const name = prompt('Enter task name:');
   if (!name) return;
