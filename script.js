@@ -1,54 +1,80 @@
-// Select DOM elements
-const tasksContainer = document.querySelector('.tasks');
-const addBtn = document.querySelector('.btn.add');
-const deleteBtn = document.querySelector('.btn.delete');
+let tasks = [
+  { name: "Meeting with client", time: "11:00", category: "today" },
+  { name: "Laptop Service", time: "13:00", category: "today" },
+  { name: "Daily UI Exercise", time: "15:00", category: "daily" },
+  { name: "Work Submission", time: "19:00", category: "weekly" },
+  { name: "Client Submission", time: "22:00", category: "monthly" },
+];
 
-// Function to create a new task elements
-function createTask(name, time) {
-  const task = document.createElement('div');
-  task.classList.add('task');
+const taskList = document.getElementById("task-list");
+const taskInput = document.getElementById("task-input");
+const taskTime = document.getElementById("task-time");
+const addBtn = document.getElementById("add-task");
+const deleteAllBtn = document.getElementById("delete-all");
+const tabs = document.querySelectorAll(".tab");
 
-  // Task name
-  const taskName = document.createElement('span');
-  taskName.textContent = name;
+let activeTab = "today";
 
-  // Task time
-  const taskTime = document.createElement('span');
-  taskTime.classList.add('time');
-  taskTime.textContent = time;
+function renderTasks() {
+  taskList.innerHTML = "";
+  const filtered = tasks.filter(t => t.category === activeTab);
 
-  // Append childrens
-  task.appendChild(taskName);
-  task.appendChild(taskTime);
-
-  // Add click event to select/unselect task
-  task.addEventListener('click', () => {
-    task.classList.toggle('active');
-  });
-
-  return task;
-}
-
-// Add new tasks
-addBtn.addEventListener('click', () => {
-  const name = prompt('Enter task name:');
-  if (!name) return;
-
-  const time = prompt('Enter task time (e.g., 3:00 pm):');
-  if (!time) return;
-
-  const newTask = createTask(name, time);
-  tasksContainer.appendChild(newTask);
-});
-
-// Delete selected tasks
-deleteBtn.addEventListener('click', () => {
-  const activeTasks = document.querySelectorAll('.task.active');
-  if (activeTasks.length === 0) {
-    alert('Please select a task to delete.');
+  if (filtered.length === 0) {
+    taskList.innerHTML = "<li><span>No tasks available</span></li>";
     return;
   }
-  activeTasks.forEach(task => task.remove());
+
+  filtered.forEach((task, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${task.name} - ${formatTime(task.time)}</span>
+      <button onclick="deleteTask(${index})">✕</button>
+    `;
+    taskList.appendChild(li);
+  });
+}
+
+function formatTime(time) {
+  let [hour, minute] = time.split(":");
+  const suffix = hour >= 12 ? "PM" : "AM";
+  hour = hour % 12 || 12;
+  return `${hour}:${minute} ${suffix}`;
+}
+
+addBtn.addEventListener("click", () => {
+  const name = taskInput.value.trim();
+  const time = taskTime.value;
+
+  if (name === "" || time === "") {
+    alert("Please enter both task and time!");
+    return;
+  }
+
+  tasks.push({ name, time, category: activeTab });
+  taskInput.value = "";
+  taskTime.value = "";
+  renderTasks();
 });
 
-renderTasks();
+function deleteTask(index) {
+  const filtered = tasks.filter(t => t.category === activeTab);
+  const taskToDelete = filtered[index];
+  tasks = tasks.filter(t => t !== taskToDelete);
+  renderTasks();
+}
+
+deleteAllBtn.addEventListener("click", () => {
+  tasks = tasks.filter(t => t.category !== activeTab);
+  renderTasks();
+});
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    activeTab = tab.dataset.tab;
+    renderTasks();
+  });
+});
+
+renderTasks(); //Initial render
