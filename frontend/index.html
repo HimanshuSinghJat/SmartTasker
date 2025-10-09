@@ -3,47 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Manager</title>
+  <title>SmartTasker 2.0</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
-    <div class="header">All Tasks</div>
+    <h1>SmartTasker</h1>
 
     <div class="tabs">
-      <div class="tab active">Today</div>
-      <div class="tab">Daily</div>
-      <div class="tab">Monthly</div>
-      <div class="tab">Weekly</div>
+      <button class="tab active" data-tab="today">Today</button>
+      <button class="tab" data-tab="daily">Daily</button>
+      <button class="tab" data-tab="monthly">Monthly</button>
+      <button class="tab" data-tab="weekly">Weekly</button>
     </div>
 
-    <div class="tasks">
-      <div class="task active">
-        <span>Meeting with Client</span>
-        <span class="time">11:00 am</span>
-      </div>
-      <div class="task">
-        <span>Laptop Service</span>
-        <span class="time">1:00 pm</span>
-      </div>
-      <div class="task">
-        <span>Daily UI Exercise</span>
-        <span class="time">3:00 pm</span>
-      </div>
-      <div class="task">
-        <span>Work Submission</span>
-        <span class="time">7:00 pm</span>
-      </div>
-      <div class="task">
-        <span>Client Submission</span>
-        <span class="time">10:00 pm</span>
-      </div>
+    <ul id="task-list"></ul>
+
+    <div class="task-input">
+      <input type="text" id="task-input" placeholder="Add new task..." />
+      <input type="time" id="task-time" />
+      <button id="add-task">+</button>
     </div>
 
-    <div class="footer-btns">
-      <button class="btn delete">🗑</button>
-      <button class="btn add">+</button>
-    </div>
+    <button id="delete-all">🗑 Delete All</button>
   </div>
 
   <script src="script.js"></script>
