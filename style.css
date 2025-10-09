@@ -1,0 +1,131 @@
+body {
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
+  background: white;
+  border-radius: 25px;
+  width: 380px;
+  padding: 25px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #0083b0;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.tab {
+  border: none;
+  background: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: #0083b0;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  max-height: 270px;
+  overflow-y: auto;
+}
+
+li {
+  background: #f0f8ff;
+  margin-bottom: 12px;
+  padding: 15px 12px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 131, 176, 0.15);
+}
+
+li span {
+  font-size: 15px;
+  color: #00334e;
+  font-weight: 500;
+}
+
+li button {
+  background: none;
+  border: none;
+  color: crimson;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.task-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f1f5f8;
+  padding: 10px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.task-input input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  flex: 1;
+  background: transparent;
+}
+
+#add-task {
+  background: #00b4db;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#add-task:hover {
+  background: #0083b0;
+}
+
+#delete-all {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  width: 100%;
+  margin-top: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#delete-all:hover {
+  background: #d63434;
+}
+
+/* Scrollbar for task*

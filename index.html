@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTasker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartTasker 2.0</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Welcome to SmartTasker</h1>
-    <p>This is the base page for our collaborative To-Do List project.</p>
+  <div class="app">
+    <h1>SmartTasker</h1>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="today">Today</button>
+      <button class="tab" data-tab="daily">Daily</button>
+      <button class="tab" data-tab="monthly">Monthly</button>
+      <button class="tab" data-tab="weekly">Weekly</button>
+    </div>
+
+    <ul id="task-list"></ul>
+
+    <div class="task-input">
+      <input type="text" id="task-input" placeholder="Add new task..." />
+      <input type="time" id="task-time" />
+      <button id="add-task">+</button>
+    </div>
+
+    <button id="delete-all">🗑 Delete All</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
