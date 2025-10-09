@@ -29,7 +29,7 @@ function createTask(name, time) {
   return task;
 }
 
-// Add new task
+// Add new tasks
 addBtn.addEventListener('click', () => {
   const name = prompt('Enter task name:');
   if (!name) return;
