@@ -76,5 +76,3 @@ tabs.forEach(tab => {
     renderTasks();
   });
 });
-
-renderTasks();
