@@ -50,3 +50,5 @@ deleteBtn.addEventListener('click', () => {
   }
   activeTasks.forEach(task => task.remove());
 });
+
+renderTasks();
